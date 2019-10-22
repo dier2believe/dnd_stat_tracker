@@ -1,0 +1,6 @@
+Style Guide
+- File names in snake_case
+- Class names in upper camel case
+- Function names in lower camel case
+- Variable names in lower camel case
+- brackets on the the same line as the function / statements / loops
