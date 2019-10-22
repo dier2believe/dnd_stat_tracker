@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 #ifndef PLAYER_CPP
 #define PLAYER_CPP
 class Player {
@@ -6,12 +10,19 @@ private:
     int armor;
     string name;
 public:
-    Player(int hea, int arm, string nam);
+    Player(int = 100, int = 50, string = "unknown");
+    void setValues(int hea, int arm, string nam);
     void changeHealth();
     void changeArmor();
-}
+};
 
 Player::Player(int hea, int arm, string nam) {
+    health = hea;
+    armor = arm;
+    name = nam;
+}
+
+void Player::setValues(int hea, int arm, string nam) {
     health = hea;
     armor = arm;
     name = nam;
