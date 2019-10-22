@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 #ifndef MONSTER_CPP
 #define MONSTER_CPP
 class Monster {
@@ -9,7 +13,7 @@ public:
     Monster(int hea, int arm, string nam);
     void changeHealth();
     void changeArmor();
-}
+};
 
 Monster::Monster(int hea, int arm, string nam) {
     health = hea;
