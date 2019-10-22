@@ -10,7 +10,8 @@ private:
     int armor;
     string name;
 public:
-    Monster(int hea, int arm, string nam);
+    Monster(int = 10, int = 10, string = "unknown");
+    void setValues(int hea, int arm, string nam);
     void changeHealth();
     void changeArmor();
 };
@@ -21,6 +22,11 @@ Monster::Monster(int hea, int arm, string nam) {
     name = nam;
 }
 
+void Monster::setValues(int hea, int arm, string nam) {
+    health = hea;
+    armor = arm;
+    name = nam;
+}
 void Monster::changeHealth() {
     int h;
     cout << name << "'s current health is: " << health << endl;
