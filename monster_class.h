@@ -33,7 +33,7 @@ void Monster::changeHealth() {
     cout << "How much did the health change? ";
     cin >> h;
     health += h;
-};
+}
 
 void Monster::changeArmor() {
     int a;
@@ -41,5 +41,5 @@ void Monster::changeArmor() {
     cout << "How much did the armor change? ";
     cin >> a;
     armor += a;
-};
+}
 #endif
