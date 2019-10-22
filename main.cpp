@@ -3,6 +3,7 @@
 #include "player_class.h"
 #include "monster_class.h"
 #include "setup_players.cpp"
+#include "setup_monsters.cpp"
 using namespace std;
 
 int main() {
