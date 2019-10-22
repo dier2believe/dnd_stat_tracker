@@ -8,7 +8,7 @@ private:
 public:
     Player(int hea, int arm, string nam);
     void changeHealth();
-    void setArmor();
+    void changeArmor();
 }
 
 Player::Player(int hea, int arm, string nam) {
@@ -25,7 +25,7 @@ void Player::changeHealth() {
     health += h;
 };
 
-void Player::setArmor() {
+void Player::changeArmor() {
     int a;
     cout << name << "'s current armor is: " << armor << endl;
     cout << "How much did the armor change? ";
