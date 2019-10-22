@@ -34,7 +34,7 @@ void Player::changeHealth() {
     cout << "How much did the health change? ";
     cin >> h;
     health += h;
-};
+}
 
 void Player::changeArmor() {
     int a;
@@ -42,5 +42,5 @@ void Player::changeArmor() {
     cout << "How much did the armor change? ";
     cin >> a;
     armor += a;
-};
+}
 #endif
