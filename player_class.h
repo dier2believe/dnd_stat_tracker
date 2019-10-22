@@ -11,13 +11,13 @@ public:
     void setArmor();
 }
 
-Player(int hea, int arm, string nam) {
+Player::Player(int hea, int arm, string nam) {
     health = hea;
     armor = arm;
     name = nam;
 }
 
-void changeHealth() {
+void Player::changeHealth() {
     int h;
     cout << name << "'s current health is: " << health << endl;
     cout << "How much did the health change? ";
@@ -25,7 +25,7 @@ void changeHealth() {
     health += h;
 };
 
-void setArmor() {
+void Player::setArmor() {
     int a;
     cout << name << "'s current armor is: " << armor << endl;
     cout << "How much did the armor change? ";
