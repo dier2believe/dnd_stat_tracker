@@ -4,3 +4,5 @@ Style Guide
 - Function names in lower camel case
 - Variable names in lower camel case
 - brackets on the the same line as the function / statements / loops
+- Short comments to the right of the line
+- Longer comments on the line above
