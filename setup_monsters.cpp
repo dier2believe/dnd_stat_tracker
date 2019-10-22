@@ -15,6 +15,6 @@ void setupMonsters(int monsterNum, Monster **monsters) {
         cout << "What is " << name << "'s armor? ";
         cin >> armor;
         
-        *monsters[i]->setValues(health, armor, name);
+        (*monsters[i]).setValues(health, armor, name);
     }
 }
