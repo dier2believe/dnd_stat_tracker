@@ -7,6 +7,18 @@ using namespace std;
 
 #ifndef PLAYER_CPP
 #define PLAYER_CPP
+class Mastery {
+private:
+    string className;
+public:
+    Mastery();
+}
+
+Mastery::Mastery() {
+    cout << "What's this character's class? ";
+    cin >> className;
+}
+
 class Player : public entitiy {
 private:
     int exp;
