@@ -6,18 +6,6 @@ using namespace std;
 
 #ifndef MONSTER_CPP
 #define MONSTER_CPP
-class Types {
-private:
-    string typeName;
-public:
-    void Types();
-}
-
-Types::Types() {
-    cout << "What type is the monster? ";
-    cin >> typeName;
-}
-
 class Monster {
 private:
     Types type;
