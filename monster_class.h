@@ -1,3 +1,5 @@
+/* Liz Dieringer 
+   Xanth Rossnagle */
 #include <iostream>
 #include <string>
 using namespace std;
