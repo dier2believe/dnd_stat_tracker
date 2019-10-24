@@ -1,3 +1,11 @@
+/* Xanth Rossnagle
+   Liz Dieringer */
+#include <iostream>
+#include <string>
+using namespace std;
+
+#ifndef TYPES_CPP
+#define TYPES_CPP
 
 class Types {
 private:
@@ -10,3 +18,4 @@ Types::Types() {
     cout << "What type is the monster? ";
     cin >> typeName;
 }
+#endif
