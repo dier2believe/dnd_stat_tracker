@@ -2,6 +2,7 @@
    Liz Dieringer */
 #include <iostream>
 #include <string>
+#include "entity_class.h"
 using namespace std;
 
 #ifndef TYPES_CPP
