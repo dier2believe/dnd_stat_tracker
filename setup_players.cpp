@@ -1,9 +1,6 @@
 /* Liz Dieringer */
-#include <iostream>
-#include <string>
 #include "player_class.h"
 #include "mastery_class.h"
-using namespace std;
 
 void setupPlayers(int playerNum, Player **players) {
     int hea;
