@@ -14,6 +14,7 @@ public:
     Types(string name);
     ~Types() {}
     void setName(string name);
+    string getName();
 };
 
 Types::Types(string name) {
@@ -22,5 +23,9 @@ Types::Types(string name) {
 
 void Types::setName(string name) {
     typeName = name;
+}
+
+string Types::getName() {
+    return typeName;
 }
 #endif
