@@ -1,24 +1,26 @@
+/* Xanth Rossnagle
+   Liz Dieringer */
 #include <iostream>
 #include <string>
-#include "player_class.h"
 #include "monster_class.h"
-#include "setup_players.cpp"
-#include "setup_monsters.cpp"
 using namespace std;
 
-int main() {
-    int playerNum;
-    int monsterNum;
+void setupMonsters(int monsterNum, Monster **monsters) {
+    int health;
+    int armor;
+    string name;
+    string typeName;
     
-    cout << "How many players do you have? ";
-    cin >> playerNum;
-    Player *players = new Player[playerNum];
-    setupPlayers(playerNum, &players);
-    
-    cout << "How many monsters do you have? ";
-    cin >> monsterNum;
-    Monster *monsters = new Monster[monsterNum];
-    setupMonsters(monsterNum, &monsters);
-    return 0;
+    for (int i = 0; i < monsterNum; i++) {
+        cout << "What is the monster's name? ";
+        cin >> name;
+        cout << "What is " << name << "'s health? ";
+        cin >> health;
+        cout << "What is " << name << "'s armor? ";
+        cin >> armor;
+        cout << "What is " << name << "'s type? ";
+        cin >> typeName;
+        
+        (*monsters)[i].setValues(health, armor, name, typeName);
+    }
 }
-
