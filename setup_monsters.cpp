@@ -1,9 +1,6 @@
 /* Xanth Rossnagle
    Liz Dieringer */
-#include <iostream>
-#include <string>
 #include "monster_class.h"
-using namespace std;
 
 void setupMonsters(int monsterNum, Monster **monsters) {
     int health;
