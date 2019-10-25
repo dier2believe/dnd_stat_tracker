@@ -7,13 +7,13 @@ using namespace std;
 #ifndef ENTITY_CPP
 #define ENTITY_CPP
 class Entity {
-private:
+protected:
     int health;
     int armor;
     string name;
 public:
     ~Entity() {}
-    void setValues(int hea, int arm, string nam);
+    virtual void setValues(int hea, int arm, string nam);
     void changeHealth();
     void changeArmor();
 };
