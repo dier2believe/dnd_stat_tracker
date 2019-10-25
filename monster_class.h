@@ -1,10 +1,6 @@
-/* Liz Dieringer 
-   Xanth Rossnagle */
-#include <iostream>
-#include <string>
+/* Liz Dieringer */
 #include "entity_class.h"
 #include "types_class.h"
-using namespace std;
 
 #ifndef MONSTER_CPP
 #define MONSTER_CPP
