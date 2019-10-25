@@ -2,7 +2,6 @@
    Xanth Rossnagle */
 #include <iostream>
 #include <string>
-#include "entity.h"
 using namespace std;
 
 #ifndef MASTERY_CPP
@@ -11,11 +10,16 @@ class Mastery {
 private:
     string className;
 public:
-    Mastery();
+    Mastery(string name);
+    ~Mastery() {}
+    void setName(string name);
+};
+
+Mastery::Mastery(string name) {
+    className = name;
 }
 
-Mastery::Mastery() {
-    cout << "What's this character's class? ";
-    cin >> className;
+void Mastery::setName(string name) {
+    className = name;
 }
 #endif
