@@ -1,5 +1,4 @@
-/* Liz Dieringer 
-   Xanth Rossnagle */
+/* Liz Dieringer */
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,17 +10,42 @@ protected:
     int health;
     int armor;
     string name;
+    int idNum;
 public:
+    Entity();
     ~Entity() {}
+    static int entityNum;
     virtual void setValues(int hea, int arm, string nam);
+    string getName();
+    int getHealth();
+    int getArmor();
     void changeHealth();
     void changeArmor();
 };
+
+int Entity::entityNum = 0;
+
+Entity::Entity() {
+    entityNum++;
+    idNum = entityNum;
+}
 
 void Entity::setValues(int hea, int arm, string nam) {
     health = hea;
     armor = arm;
     name = nam;
+}
+
+string Entity::getName() {
+    return name;
+}
+
+int Entity::getHealth() {
+    return health;
+}
+
+int Entity::getArmor() {
+    return armor;
 }
 
 void Entity::changeHealth() {
