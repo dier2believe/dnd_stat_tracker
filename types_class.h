@@ -2,7 +2,6 @@
    Liz Dieringer */
 #include <iostream>
 #include <string>
-#include "entity_class.h"
 using namespace std;
 
 #ifndef TYPES_CPP
@@ -12,11 +11,11 @@ class Types {
 private:
     string typeName;
 public:
-    void Types();
-}
+    Types(string tynm);
+    ~Types() {}
+};
 
-Types::Types() {
-    cout << "What type is the monster? ";
-    cin >> typeName;
+Types::Types(string tynm) {
+    typeName = tynm;
 }
 #endif
