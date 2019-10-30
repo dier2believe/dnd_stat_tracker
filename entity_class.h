@@ -69,6 +69,7 @@ int Entity::returnIsDead() {
 void Entity::isDeadCheck() {
     if (health <= 0) {
         isDead = 1;
+        cout << "isDead: " << isDead << " should be different " << endl;
         cout << endl << " **** " << name << " has died" << " **** " << endl << endl;
     } else {
         isDead = 0;
