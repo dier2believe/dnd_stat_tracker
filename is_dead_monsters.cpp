@@ -1,11 +1,14 @@
-//Nicole Lord
+/* Nicole Lord
+   Liz Dieringer */
 #include "monster_class.h"
 
-int isMonsterDead(int monsterNum, Monster *monsters) {
+int monstersDead(int monsterNum, Monster *monsters) {
     int i;
     int allDead = monsterNum;
+    cout << endl << endl << "Total monsters : " << allDead << endl;
     for (i = 0; i < monsterNum; i++) {
-        allDead -= monster[i].isDead;
+        allDead -= monsters[i].returnIsDead();
+        cout << "monster dead" << endl << "total monsters: " << allDead << endl;
     }
     return allDead;
 }
