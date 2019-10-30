@@ -54,7 +54,7 @@ void Entity::changeHealth() {
     int h;
     cout << name << "'s current health is: " << health << endl;
     cout << "How much did the health change? " <<
-        "(Negative number for decrease, positive for increase) ";
+        "(Enter a negative number for a decrease in health, positive for an increase.) ";
     cin >> h;
     health += h;
 }
@@ -63,7 +63,7 @@ void Entity::changeArmor() {
     int a;
     cout << name << "'s current armor is: " << armor << endl;
     cout << "How much did the armor change? " <<
-        "(Negative number for decrease, positive for increase) ";
+        "(Enter a negative number for a decrease in health, positive for an increase.) ";
     cin >> a;
     armor += a;
 }
