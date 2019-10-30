@@ -8,7 +8,7 @@
 #include "monster_class.h"
 using namespace std;
 
-vector<Entity> initializeOrder(int playerNum, Player *players, int monsterNum, Monster *monsters) {
+vector<Entity*> initializeOrder(int playerNum, Player *players, int monsterNum, Monster *monsters) {
     int totalEntities = playerNum + monsterNum;
     int randNumChosen[totalEntities];
     int done = 0;
@@ -16,7 +16,7 @@ vector<Entity> initializeOrder(int playerNum, Player *players, int monsterNum, M
     int randNum;
     Player player;
     Monster monster;
-    vector<Entity> orderArr;
+    vector<Entity*> orderArr;
     //srand(time(NULL));
     
     for (int k = 0; k < totalEntities; k++) {
@@ -27,17 +27,17 @@ vector<Entity> initializeOrder(int playerNum, Player *players, int monsterNum, M
         done = 0;
         while (!done) {
             randNum = rand() % totalEntities;
-            cout << "randomNum: " << randNum << endl;
+            //cout << "randomNum: " << randNum << endl;
             
             if (randNumChosen[randNum]) {
                 if (randNum < playerNum) {
-                    cout << "random is less than playerNum" << endl;
+                    //cout << "random is less than playerNum" << endl;
                     randNumChosen[randNum] = 0;
-                    orderArr.push_back(players[randNum]);
+                    orderArr.push_back(&players[randNum]);
                 } else {
-                    cout << "random is more than or equal to playerNum" << endl;
+                    //cout << "random is more than or equal to playerNum" << endl;
                     randNumChosen[randNum] = 0;
-                    orderArr.push_back(monsters[(randNum-playerNum)]);
+                    orderArr.push_back(&monsters[(randNum-playerNum)]);
                 }
                 done++;
             }
