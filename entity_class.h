@@ -1,4 +1,5 @@
-/* Liz Dieringer */
+/* Liz Dieringer
+   Nicole Lord */
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,6 +12,7 @@ protected:
     int armor;
     string name;
     int idNum;
+    int isDead;
 public:
     Entity();
     ~Entity() {}
@@ -51,7 +53,8 @@ int Entity::getArmor() {
 void Entity::changeHealth() {
     int h;
     cout << name << "'s current health is: " << health << endl;
-    cout << "How much did the health change? ";
+    cout << "How much did the health change? " <<
+        "(Negative number for decrease, positive for increase) ";
     cin >> h;
     health += h;
 }
@@ -59,7 +62,8 @@ void Entity::changeHealth() {
 void Entity::changeArmor() {
     int a;
     cout << name << "'s current armor is: " << armor << endl;
-    cout << "How much did the armor change? ";
+    cout << "How much did the armor change? " <<
+        "(Negative number for decrease, positive for increase) ";
     cin >> a;
     armor += a;
 }
