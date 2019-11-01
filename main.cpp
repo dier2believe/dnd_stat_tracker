@@ -22,6 +22,8 @@ int main() {
     int monstersAlive;
     int turnNum = 0;
     char c;
+    string trash;
+    int complete;
     vector<Entity*> orderArr;
     /*
     cout << "How many players do you have? ";
@@ -60,10 +62,11 @@ int main() {
     orderArr = initializeOrder(playerNum, players, monsterNum, monsters);
     cout << endl;
     
+    cout << "Order after Initiative: " << endl << endl;
     for( int i = 0; i < entityNum; i++) {
         cout << "Name: " << orderArr[i]->getName() << endl;
         cout << "Health: " << orderArr[i]->getHealth() << endl;
-        cout << "Armor: " << orderArr[i]->getArmor() << endl;
+        cout << "Armor: " << orderArr[i]->getArmor() << endl << endl;
     }
     
     playersAlive = playerNum;
@@ -75,7 +78,17 @@ int main() {
             cout << "Does " << orderArr[turnNum]->getName() << " want to attack? (y)es or (n)o: ";
             cin >> c;
             if (c == 'y') {
-                attack(turnNum, orderArr, entityNum);
+                complete = 0;
+                getline(cin, trash);
+                while (!complete) {
+                    try {
+                        attack(turnNum, orderArr, entityNum);
+                        complete++;
+                    }
+                    catch(int x) {
+                        cout << "That name was invalid." << endl;
+                    }
+                }
             }
             statChange(turnNum, orderArr);
         } else {
