@@ -24,7 +24,6 @@ public:
     void changeArmor();
     int returnIsDead();
     void isDeadCheck();
-   friend ostream& operator<<(ostream &os, const Entity&);
 };
 
 void Entity::setValues(int hea, int arm, string nam) {
@@ -75,11 +74,6 @@ void Entity::isDeadCheck() {
     } else {
         isDead = 0;
     }
-}
-
-ostream& operator<<(ostream &os, const Entity &e){
-  os << "The name of the entity is " << e.name;
-  return os;
 }
 
 #endif
