@@ -1,4 +1,5 @@
-/* Liz Dieringer */
+/* Liz Dieringer 
+   Nicole Lord*/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -64,7 +65,8 @@ int main() {
     
     cout << "Order after Initiative: " << endl << endl;
     for( int i = 0; i < entityNum; i++) {
-        cout << "Name: " << orderArr[i]->getName() << endl;
+        cout << orderArr;
+        //cout << "Name: " << orderArr[i]->getName() << endl;
         cout << "Health: " << orderArr[i]->getHealth() << endl;
         cout << "Armor: " << orderArr[i]->getArmor() << endl << endl;
     }
