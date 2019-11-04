@@ -24,6 +24,7 @@ public:
     void changeArmor();
     int returnIsDead();
     void isDeadCheck();
+    friend ostream& operator<<(ostream &os, const vector<Entity*> &orderArr);
 };
 
 void Entity::setValues(int hea, int arm, string nam) {
@@ -74,6 +75,17 @@ void Entity::isDeadCheck() {
     } else {
         isDead = 0;
     }
+}
+
+ostream& operator<<(ostream &os, const vector<Entity*> &orderArr) {
+    int entityNum = 0;
+    int playerNum = 2;
+    int monsterNum = 2;
+    entityNum = playerNum + monsterNum;
+    for( int i = 0; i < entityNum; i++) {
+        os << "Name: " << orderArr[i]->name << endl;
+    }
+    return os;
 }
 
 #endif
