@@ -1,5 +1,4 @@
-/* Liz Dieringer 
-   Nicole Lord*/
+/* Liz Dieringer */
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,8 +16,8 @@ using namespace std;
 
 int main() {
     int playerNum;
+    int userEntityNum; //The users variable to set the total of entities
     int monsterNum;
-    int entityNum;
     int playersAlive;
     int monstersAlive;
     int turnNum = 0;
@@ -63,13 +62,20 @@ int main() {
     orderArr = initializeOrder(playerNum, players, monsterNum, monsters);
     cout << endl;
     
+    /*Asking the user of the tracker how many entities there are going to be or
+      better put, how many players and monsters there are in total. */
+    cout << "How many entities are there? "; 
+    cin >> userEntityNum;
+    /*Setting entityNum in the entity class to userEntityNum*/
+    Entity::setEntityNum(userEntityNum);
+    
+    /*This prints out the name of the entity as well as its health and armor in the
+      order randomly choosen*/
     cout << "Order after Initiative: " << endl << endl;
-    for( int i = 0; i < entityNum; i++) {
-        cout << orderArr;
-        //cout << "Name: " << orderArr[i]->getName() << endl;
-        cout << "Health: " << orderArr[i]->getHealth() << endl;
-        cout << "Armor: " << orderArr[i]->getArmor() << endl << endl;
-    }
+    /*By using operation overloading of the insertion operator we can just
+      use orderArr*/
+    cout << orderArr;  
+
     
     playersAlive = playerNum;
     monstersAlive = monsterNum;
