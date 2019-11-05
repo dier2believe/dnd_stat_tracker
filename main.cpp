@@ -17,6 +17,7 @@ using namespace std;
 int main() {
     int playerNum;
     int userEntityNum; //The users variable to set the total of entities
+    int entityNum;
     int monsterNum;
     int playersAlive;
     int monstersAlive;
