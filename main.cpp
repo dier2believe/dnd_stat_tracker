@@ -1,4 +1,5 @@
-/* Liz Dieringer */
+/* Liz Dieringer 
+   Nicole Lord */
 #include <iostream>
 #include <string>
 #include <vector>
