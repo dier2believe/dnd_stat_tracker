@@ -1,0 +1,16 @@
+Name Tom
+Health 20
+Armor 10
+Class Mage
+Name Jerry
+Health 20
+Armor 10
+Class Mage
+Name dog
+Health 10
+Armor 5
+Class Undead
+Name Cat
+Health 10
+Armor 5
+Class Undead
