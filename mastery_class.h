@@ -12,11 +12,16 @@ private:
 public:
     Mastery(string name);
     ~Mastery() {}
+    string getName();
     void setName(string name);
 };
 
 Mastery::Mastery(string name) {
     className = name;
+}
+
+string Mastery::getName() {
+    return className;
 }
 
 void Mastery::setName(string name) {
