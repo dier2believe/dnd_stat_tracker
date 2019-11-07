@@ -7,45 +7,77 @@
 #include "monster_class.h"
 using namespace std;
 
-void importEntities(int playerNum, int monsterNum, Player **players, Monster **monsters) {
+
+// Function to import all of the players and monsters
+void importEntities(Player **players, Monster **monsters) {
+    // variables to keep track of file info
     string line;
     int health;
     int armor;
     string name;
     string className;
-                       
+    // variables to keep track of loops
+    int done = 0;
+    int entityNum = 0;
     
-    
-    ifstream fin ("starting_entities.txt");  //open file
+    // open the file to read from it
+    ifstream fin ("starting_entities.txt");
+    // if it doesn't open then throw an exception
     if (fin.fail()) {
         throw(1);
     }
     
-    for (int i = 0; i < playerNum; i++) {
+    // remove the players line and set up loop variables
+    fin >> line;
+    done = 0;
+    entityNum = 0;
+    // Get all of the information from the file and create the players
+    while (!done) {
         fin >> line;
-        fin >> name;
-        fin >> line;
-        fin >> health;
-        fin >> line;
-        fin >> armor;
-        fin >> line;
-        fin >> className;
-        (*players)[i].setValues(health, armor, name, className, 0);
+        // make sure that there are still players to add
+        if (line != "Monsters") {
+            // get information
+            fin >> name;
+            fin >> line;
+            fin >> health;
+            fin >> line;
+            fin >> armor;
+            fin >> line;
+            fin >> className;
+            // add new player
+            (*players)[entityNum].setValues(health, armor, name, className, 0);
+            entityNum++;
+        } else {
+            done++;
+        }
     }
     
-    for (int j = 0; j < monsterNum; j++) {
-        fin >> line;  //read from file(up to space)
-        fin >> name;
+    // set up loop variables
+    done = 0;
+    entityNum = 0;
+    // Get all of the information from the file and create the monsters
+    while (!done) {
         fin >> line;
-        fin >> health;
-        fin >> line;
-        fin >> armor;
-        fin >> line;
-        fin >> className;
-        (*monsters)[j].setValues(health, armor, name, className);
+        // make sure that there are still monsters to add
+        if (line != "DONE") {
+            // get information
+            fin >> name;
+            fin >> line;
+            fin >> health;
+            fin >> line;
+            fin >> armor;
+            fin >> line;
+            fin >> className;
+            // add new monster
+            (*monsters)[entityNum].setValues(health, armor, name, className);
+            entityNum++;
+        } else {
+            done++;
+        }
     }
     
-    fin.close();   //close file
+    //close file
+    fin.close();
 
 }
 
