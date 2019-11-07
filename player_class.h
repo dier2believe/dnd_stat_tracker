@@ -11,6 +11,7 @@ private:
 public:
     Player(int = 10, int = 10, string = "unknown", string = "unknown", int = 0);
     ~Player() {}
+    string getClass();
     void setValues(int = 10, int = 10, string = "unknown", string = "unknown", int = 0);
 };
 
@@ -21,6 +22,10 @@ Player::Player(int hea, int arm, string nam, string className, int ex):skills(cl
     exp = ex;
 }
 
+string Player::getClass() {
+    return skills.getName();
+}
+
 void Player::setValues(int hea, int arm, string nam, string className, int ex) {
     health = hea;
     armor = arm;
@@ -28,6 +33,5 @@ void Player::setValues(int hea, int arm, string nam, string className, int ex) {
     exp = ex;
     skills.setName(className);
 }
-    
 
 #endif
