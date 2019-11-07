@@ -76,8 +76,7 @@ void importEntities(Player **players, Monster **monsters) {
         }
     }
     
-    //close file
-    fin.close();
+    fin.close();  //close file
 
 }
 
