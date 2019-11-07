@@ -7,21 +7,17 @@
 #include "monster_class.h"
 using namespace std;
 
+// Function to export the players and monsters ending information
 void exportEntities(int playerNum, int monsterNum, Player *players, Monster *monsters) {
-    string line;
-    int health;
-    int armor;
-    string name;
-    string className;
-                       
-    
-    
-    ofstream fout ("ending_entities.txt");  //open file
+    // open the file to write to
+    ofstream fout ("ending_entities.txt");
+    // if the file fails to open then throw an exception
     if (fout.fail()) {
         throw(1);
     }
     
-    fout << " **Players** " << endl << endl;
+    // Print out all of the players information
+    fout << "Players" << endl << endl;
     for (int i = 0; i < playerNum; i++) {
         fout << "Name: " << players[i].getName() << endl;
         fout << "Health: " << players[i].getHealth() << endl;
@@ -29,7 +25,8 @@ void exportEntities(int playerNum, int monsterNum, Player *players, Monster *mon
         fout << "Class: " << players[i].getClass() << endl << endl;
     }
     
-    fout << " **Monsters** " << endl << endl;
+    // Print out all of the monsters information
+    fout << "Monsters" << endl << endl;
     for (int j = 0; j < monsterNum; j++) {
         fout << "Name: " << monsters[j].getName() << endl;
         fout << "Health: " << monsters[j].getHealth() << endl;
@@ -37,7 +34,11 @@ void exportEntities(int playerNum, int monsterNum, Player *players, Monster *mon
         fout << "Class: " << monsters[j].getType() << endl << endl;
     }
     
-    fout.close();   //close file
+    // End the file so they can use it again to import
+    fout << "DONE";
+    
+    //close file
+    fout.close();
 
 }
 
