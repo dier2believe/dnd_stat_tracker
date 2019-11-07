@@ -6,6 +6,7 @@ using namespace std;
 
 #ifndef ENTITY_CPP
 #define ENTITY_CPP
+// set up the parent Entity class
 class Entity {
 protected:
     int health;
@@ -30,12 +31,14 @@ public:
 
 int Entity::entityNum = 0;   //Initializing the number of entities
 
+// default constructor for the Entity class
 void Entity::setValues(int hea, int arm, string nam) {
     health = hea;
     armor = arm;
     name = nam;
 }
 
+// Functions to get the information from the Entity to print
 string Entity::getName() {
     return name;
 }
@@ -48,6 +51,7 @@ int Entity::getArmor() {
     return armor;
 }
 
+// Functions to change the stats of the Entity individually
 void Entity::changeHealth() {
     int h;
     cout << name << "'s current health is: " << health << endl;
@@ -66,10 +70,12 @@ void Entity::changeArmor() {
     armor += a;
 }
 
+// Function to return if the Entity is dead
 int Entity::returnIsDead() {
     return isDead;
 }
 
+// Function to check if the Entity has died
 void Entity::isDeadCheck() {
     if (health <= 0) {
         isDead = 1;
@@ -81,12 +87,12 @@ void Entity::isDeadCheck() {
 }
 
 ostream& operator<<(ostream &os, const vector<Entity*> &orderArr) {
-   /*This function allows us to just call cout << orderArr in main*/
+    //This function allows us to just call cout << orderArr in main
     int entityNumber = 0;
-    /*Getting the total of entities from the global entity variable*/
+    //Getting the total of entities from the global entity variable
     entityNumber = Entity::entityNum;
     for( int i = 0; i < entityNumber; i++) {
-        /*Prints out the name, health, and armor of an enitity.*/
+        //Prints out the name, health, and armor of an enitity.
         os << "Name: " << orderArr[i]->name << endl;
         os << "Health: " << orderArr[i]->getHealth() << endl;
         os << "Armor: " << orderArr[i]->getArmor() << endl << endl;
