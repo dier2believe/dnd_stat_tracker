@@ -37,8 +37,7 @@ void exportEntities(int playerNum, int monsterNum, Player *players, Monster *mon
     // End the file so they can use it again to import
     fout << "DONE";
     
-    //close file
-    fout.close();
+    fout.close();  //close file
 
 }
 
