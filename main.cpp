@@ -13,63 +13,56 @@
 #include "is_dead_monsters.cpp"
 #include "stat_change.cpp"
 #include "attack.cpp"
+#include "import_entities.cpp"
+#include "export_entities.cpp"
 using namespace std;
 
 int main() {
     int playerNum;
-    int userEntityNum; //The users variable to set the total of entities
-    int entityNum;
     int monsterNum;
+    int entityNum;
+    
     int playersAlive;
     int monstersAlive;
+    
     int turnNum = 0;
     char c;
     string trash;
-    int complete;
+    int done;
     vector<Entity*> orderArr;
-    /*
+    
+    
     cout << "How many players do you have? ";
     cin >> playerNum;
-    cout << endl;
-    Player *players = new Player[playerNum];
-    setupPlayers(playerNum, &players);
-    cout << endl;
-    
     cout << "How many monsters do you have? ";
     cin >> monsterNum;
-    cout << endl;
-    Monster *monsters = new Monster[monsterNum];
-    setupMonsters(monsterNum, &monsters);
-    cout << endl;
-    */
-    
-    
-    // TEST FOR NOW
-    playerNum = 2;
-    monsterNum = 2;
     Player *players = new Player[playerNum];
-    players[0].setValues(20, 20, "Tom", "Mage", 0);
-    players[1].setValues(20, 20, "Jerry", "Mage", 0);
     Monster *monsters = new Monster[monsterNum];
-    monsters[0].setValues(20, 20, "dog", "undead");
-    monsters[1].setValues(20, 20, "cat", "undead");
-    // Done with test data
-    
-    
-    
-    
+    done = 0;
+    while (!done) {
+        try {
+            importEntities(playerNum, monsterNum, &players, &monsters);
+            done++;
+        }
+        catch (int x) {
+            cout << "Make sure your file is named 'starting_entities.txt'" << endl;
+            cout << "Would you like to manually put in your entites? (y)es or (n)o: ";
+            cin >> c;
+            if (c == 'y') {
+                setupPlayers(playerNum, &players);
+                setupMonsters(monsterNum, &monsters);
+                done++;
+            }
+            getline(cin, trash);
+        }
+    }
     
     entityNum = playerNum + monsterNum;
     
     orderArr = initializeOrder(playerNum, players, monsterNum, monsters);
     cout << endl;
-    
-    /*Asking the user of the tracker how many entities there are going to be or
-      better put, how many players and monsters there are in total. */
-    cout << "How many entities are there? "; 
-    cin >> userEntityNum;
-    /*Setting entityNum in the entity class to userEntityNum*/
-    Entity::setEntityNum(userEntityNum);
+    /*Setting entityNum in the entity class to entityNum*/
+    Entity::setEntityNum(entityNum);
     
     /*This prints out the name of the entity as well as its health and armor in the
       order randomly choosen*/
@@ -88,12 +81,12 @@ int main() {
             cout << "Does " << orderArr[turnNum]->getName() << " want to attack? (y)es or (n)o: ";
             cin >> c;
             if (c == 'y') {
-                complete = 0;
+                done = 0;
                 getline(cin, trash);
-                while (!complete) {
+                while (!done) {
                     try {
                         attack(turnNum, orderArr, entityNum);
-                        complete++;
+                        done++;
                     }
                     catch(int x) {
                         cout << "That name was invalid." << endl;
@@ -120,6 +113,8 @@ int main() {
     } else {
         cout << endl << "Monsters lost!" << endl;
     }
+    
+    exportEntities(playerNum, monsterNum, players, monsters);
     
     return 0;
 }
