@@ -4,6 +4,7 @@
 
 #ifndef PLAYER_CPP
 #define PLAYER_CPP
+// set up the Player class that inherits from Entity
 class Player : public Entity {
 private:
     int exp;
@@ -15,6 +16,7 @@ public:
     void setValues(int = 10, int = 10, string = "unknown", string = "unknown", int = 0);
 };
 
+// Default constructor for player with all of its values
 Player::Player(int hea, int arm, string nam, string className, int ex):skills(className) {
     health = hea;
     armor = arm;
@@ -22,10 +24,12 @@ Player::Player(int hea, int arm, string nam, string className, int ex):skills(cl
     exp = ex;
 }
 
+// get the class name which is private
 string Player::getClass() {
     return skills.getName();
 }
 
+// change all of the values once the player already exists
 void Player::setValues(int hea, int arm, string nam, string className, int ex) {
     health = hea;
     armor = arm;
