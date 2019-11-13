@@ -69,13 +69,17 @@ int main() {
             importEntities(&players, &monsters);
             done++;
         }
-        catch (int x) {
+        catch (int error) {
             // if it comes back from an exception it askes if they will put the information in manually
             cout << "Make sure your file is named 'starting_entities.txt'" << endl;
             cout << "Would you like to manually put in your entites? (y)es or (n)o: ";
             cin >> c;
             // if they say yes it calls the functions to manually set the entities up
             if (c == 'y') {
+                cout << "How many players do you have? ";
+                cin >> playerNum;
+                cout << "How many monsters do you have? ";
+                cin >> monsterNum;
                 setupPlayers(playerNum, &players);
                 setupMonsters(monsterNum, &monsters);
                 done++;
