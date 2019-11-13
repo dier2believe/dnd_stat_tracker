@@ -17,7 +17,7 @@ void exportEntities(int playerNum, int monsterNum, Player *players, Monster *mon
     }
     
     // Print out all of the players information
-    fout << "Players" << endl << endl;
+    fout << "Players " << playerNum << endl << endl;
     for (int i = 0; i < playerNum; i++) {
         fout << "Name: " << players[i].getName() << endl;
         fout << "Health: " << players[i].getHealth() << endl;
@@ -26,7 +26,7 @@ void exportEntities(int playerNum, int monsterNum, Player *players, Monster *mon
     }
     
     // Print out all of the monsters information
-    fout << "Monsters" << endl << endl;
+    fout << "Monsters " << monsterNum << endl << endl;
     for (int j = 0; j < monsterNum; j++) {
         fout << "Name: " << monsters[j].getName() << endl;
         fout << "Health: " << monsters[j].getHealth() << endl;
