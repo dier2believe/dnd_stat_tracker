@@ -1,6 +1,8 @@
 /* Liz Dieringer 
    Nicole Lord */
 #include <iostream>
+#include <sstream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include "entity_class.h"
@@ -30,14 +32,30 @@ int main() {
     char c;
     string trash;
     int done;
+    int gameContinue;
+    int x;
     // set up vector of all of the monsters and players
     vector<Entity*> orderArr;
     
-    // Get the number of players and monsters and set up variables
-    cout << "How many players do you have? ";
-    cin >> playerNum;
-    cout << "How many monsters do you have? ";
-    cin >> monsterNum;
+    // open the file to read from it
+    ifstream fin ("starting_entities.txt");
+    if (!(fin.fail())) {
+        // if it opens then get the number of players
+        fin >> trash;
+        fin >> playerNum;
+        // loop through the players to get to monsters 
+        for (int i = 0; i < playerNum; i++) {
+            fin >> trash;
+            for (int j = 0; j < 7; j++) {
+                fin >> trash;
+            }
+        }
+        // removes the monsters title and gets monsterNum
+        fin >> trash;
+        fin >> monsterNum;
+        fin.close();
+    }
+    
     entityNum = playerNum + monsterNum;
     // Create the array of players and monsters
     Player *players = new Player[playerNum];
@@ -76,12 +94,19 @@ int main() {
     cout << "Order after Initiative: " << endl << endl;
     //using operation overloading of the insertion operator to print them
     cout << orderArr;  
-
+    
+    // tell the player when they can quit if they want
+    cout << endl << "You can quit at the start of each turn when " << endl
+         << "asked if you would like to attack with 'q'" << endl << endl;
+    
     // set up the initial entites alive to the current entity nums
     playersAlive = playerNum;
     monstersAlive = monsterNum;
+    // set up the game continue variable
+    gameContinue = 1;
     // loop through each turn as long as each group has at least one entity alive
-    while ((playersAlive > 0) && (monstersAlive > 0)) {
+    // and the user still wants to continue
+    while ((gameContinue == 1) && (playersAlive > 0) && (monstersAlive > 0)) {
         // check to see if the current entities turn is alive
         if (orderArr[turnNum]->returnIsDead() == 0) {
             // Prints ther entity's name and askes if they want to attack
@@ -89,25 +114,29 @@ int main() {
             cout << "Does " << orderArr[turnNum]->getName() << " want to attack? (y)es or (n)o: ";
             cin >> c;
             
-            if (c == 'y') {
-                // if they want to attack then call the attack function until they give a valid name
-                done = 0;
-                getline(cin, trash);
-                while (!done) {
-                    try {
-                        // try to call the attack function
-                        attack(turnNum, orderArr, entityNum);
-                        // if sucessful then end the loop
-                        done++;
-                    }
-                    catch(int x) {
-                        // if it didn't work let the user know and try again
-                        cout << "That name was invalid." << endl;
+            if (c == 'q') {
+                gameContinue--;
+            } else {
+                if (c == 'y') {
+                    // if they want to attack then call the attack function until they give a valid name
+                    done = 0;
+                    getline(cin, trash);
+                    while (!done) {
+                        try {
+                            // try to call the attack function
+                            attack(turnNum, orderArr, entityNum);
+                            // if sucessful then end the loop
+                            done++;
+                        }
+                        catch(int x) {
+                            // if it didn't work let the user know and try again
+                            cout << "That name was invalid." << endl;
+                        }
                     }
                 }
+                // once the entity is done with the attack then ask if the entity's stats changed
+                statChange(turnNum, orderArr);
             }
-            // once the entity is done with the attack then ask if the entity's stats changed
-            statChange(turnNum, orderArr);
         } else {
             // if the entity is dead let the user know before the next turn
             cout << endl << "**" << orderArr[turnNum]->getName() << " is dead" << "**" << endl << endl;
@@ -128,8 +157,10 @@ int main() {
     // once done print if the players won or lost
     if (playersAlive == 0) {
         cout << endl << "Players lost..." << endl;
-    } else {
+    } else if (monstersAlive == 0){
         cout << endl << "Players win!" << endl;
+    } else {
+        cout << "The battle has ended with no winner..." << endl;
     }
     
     // print the ending stats of the monsters and players for future use
