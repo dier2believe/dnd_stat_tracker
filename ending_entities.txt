@@ -1,4 +1,4 @@
-Players
+Players 2
 
 Name: Tom
 Health: -30
@@ -10,7 +10,7 @@ Health: 25
 Armor: 10
 Class: Mage
 
-Monsters
+Monsters 2
 
 Name: dog
 Health: -10
