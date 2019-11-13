@@ -1,16 +1,25 @@
-Name Tom
-Health 20
-Armor 10
-Class Mage
-Name Jerry
-Health 20
-Armor 10
-Class Mage
-Name dog
-Health 10
-Armor 5
-Class Undead
-Name Cat
-Health 10
-Armor 5
-Class Undead
+Players 2
+
+Name: Tom
+Health: 20
+Armor: 10
+Class: Mage
+
+Name: Jerry
+Health: 20
+Armor: 10
+Class: Mage
+
+Monsters 2
+
+Name: dog
+Health: 10
+Armor: 5
+Class: Undead
+
+Name: cat
+Health: 10
+Armor: 5
+Class: Undead
+
+DONE
